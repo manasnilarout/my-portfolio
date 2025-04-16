@@ -48,7 +48,7 @@ export default function Home() {
       <h1 className="text-2xl font-bold text-center mb-2">Manas Ranjan Nilorout</h1>
 
       {greeting ? (
-        <p className="text-lg text-center text-muted-foreground mb-6">{greeting}</p>
+        <p className="text-lg text-center text-foreground mb-6">{greeting}</p>
       ) : (
         <Skeleton className="w-[200px] h-[24px] mb-6" />
       )}
