@@ -4,7 +4,7 @@ import {Github, Linkedin, Mail} from 'lucide-react';
 import Image from 'next/image';
 import {useEffect, useState} from 'react';
 
-import {personalizeGreeting} from '@/ai/flows/personalize-greeting';
+import {generateQuote} from '@/ai/flows/generate-quote';
 import {Avatar, AvatarFallback, AvatarImage} from '@/components/ui/avatar';
 import {Button} from '@/components/ui/button';
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
@@ -26,16 +26,14 @@ const professionalSummary =
   'Senior Software Engineer with 10+ years of experience in building scalable and maintainable web applications. Passionate about clean code, automation, and continuous delivery.';
 
 export default function Home() {
-  const [greeting, setGreeting] = useState<string | null>(null);
+  const [quote, setQuote] = useState<string | null>(null);
 
   useEffect(() => {
-    async function fetchGreeting() {
-      const location = 'San Francisco, CA';
-      const browsingHistory = 'visited blog, documentation pages';
-      const personalizedGreeting = await personalizeGreeting({location, browsingHistory});
-      setGreeting(personalizedGreeting?.greeting ?? 'Welcome!');
+    async function fetchQuote() {
+      const generatedQuote = await generateQuote({});
+      setQuote(generatedQuote?.quote ?? 'Welcome!');
     }
-    fetchGreeting();
+    fetchQuote();
   }, []);
 
   return (
@@ -47,8 +45,8 @@ export default function Home() {
 
       <h1 className="text-2xl font-bold text-center mb-2">Manas Ranjan Nilorout</h1>
 
-      {greeting ? (
-        <p className="text-lg text-center text-foreground mb-6">{greeting}</p>
+      {quote ? (
+        <p className="text-lg text-center text-foreground mb-6">{quote}</p>
       ) : (
         <Skeleton className="w-[200px] h-[24px] mb-6" />
       )}
