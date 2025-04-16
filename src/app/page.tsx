@@ -10,7 +10,7 @@ import {Button} from '@/components/ui/button';
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
 import {Skeleton} from '@/components/ui/skeleton';
 
-const placeholderAvatar = 'https://lh3.googleusercontent.com/a/ACg8ocJjEVfdEuaOU-L3e5JU-R-0I_E5jJ8hFm2M5r7uLq0j=s288-c-no';
+const profileImage = 'https://firebasestorage.googleapis.com/v0/b/fir-studio-39a65.appspot.com/o/manas.jpeg?alt=media&token=491b65f7-118e-4eb2-b6a9-a48997d7ca0b';
 
 const profileLinks = [
   {
@@ -23,7 +23,7 @@ const profileLinks = [
 ];
 
 const professionalSummary =
-  'Senior Software Engineer with 10+ years of experience in building scalable and maintainable web applications. Passionate about clean code, automation, and continuous delivery.';
+  'Node.js full-stack developer with 7 years of experience building dynamic web applications across healthcare, hotel management, and gaming. Proficient in Angular, Vue.js, DevOps tools, and multiple database systems. Passionate about modern JavaScript, ES6, Typescript and expanding knowledge in Go and DevOps.';
 
 export default function Home() {
   const [quote, setQuote] = useState<string | null>(null);
@@ -39,19 +39,19 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
       <div className="absolute top-4 right-4 flex space-x-2">
-        <Button variant="default">Resume</Button>
-        <Button variant="default">Blogs</Button>
-        <Button variant="default">Projects</Button>
+        <Button variant="outline">Resume</Button>
+        <Button variant="outline">Blogs</Button>
+        <Button variant="outline">Projects</Button>
       </div>
-      <Avatar className="mb-4">
-        <AvatarImage src={placeholderAvatar} alt="Manas Ranjan Nilorout" />
+      <Avatar className="mb-4 h-32 w-32">
+        <AvatarImage src={profileImage} alt="Manas Ranjan Nilorout" />
         <AvatarFallback>MN</AvatarFallback>
       </Avatar>
 
       <h1 className="text-2xl font-bold text-center mb-2">Manas Ranjan Nilorout</h1>
 
       {quote ? (
-        <p className="text-lg text-center text-foreground mb-6">{quote}</p>
+        <p className="text-lg text-center text-muted-foreground mb-6">{quote}</p>
       ) : (
         <Skeleton className="w-[200px] h-[24px] mb-6" />
       )}
