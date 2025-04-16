@@ -39,9 +39,9 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
       <div className="absolute top-4 right-4 flex space-x-2">
-        <Button variant="ghost">Resume</Button>
-        <Button variant="ghost">Blogs</Button>
-        <Button variant="ghost">Projects</Button>
+        <Button variant="outline">Resume</Button>
+        <Button variant="outline">Blogs</Button>
+        <Button variant="outline">Projects</Button>
       </div>
       <Avatar className="mb-4">
         <AvatarImage src={placeholderAvatar} alt="Manas Ranjan Nilorout" />
