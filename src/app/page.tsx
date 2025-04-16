@@ -10,7 +10,7 @@ import {Button} from '@/components/ui/button';
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
 import {Skeleton} from '@/components/ui/skeleton';
 
-const placeholderAvatar = 'https://picsum.photos/128/128';
+const placeholderAvatar = 'https://lh3.googleusercontent.com/a/ACg8ocJjEVfdEuaOU-L3e5JU-R-0I_E5jJ8hFm2M5r7uLq0j=s288-c-no';
 
 const profileLinks = [
   {
@@ -39,9 +39,9 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
       <div className="absolute top-4 right-4 flex space-x-2">
-        <Button variant="outline">Resume</Button>
-        <Button variant="outline">Blogs</Button>
-        <Button variant="outline">Projects</Button>
+        <Button variant="default">Resume</Button>
+        <Button variant="default">Blogs</Button>
+        <Button variant="default">Projects</Button>
       </div>
       <Avatar className="mb-4">
         <AvatarImage src={placeholderAvatar} alt="Manas Ranjan Nilorout" />
