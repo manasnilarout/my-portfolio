@@ -12,7 +12,7 @@ import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/compo
 import {Skeleton} from '@/components/ui/skeleton';
 import {Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog";
 
-const profileImage = 'https://i.imgur.com/aPaKtTC.jpeg';
+const profileImage = 'https://i.imgur.com/y9D3yOM.jpeg';
 
 const profileLinks = [
   {
@@ -25,13 +25,17 @@ const profileLinks = [
 ];
 
 const professionalSummary =
-  'Skilled Node.js full-stack developer with 7 years of experience in healthcare, hotel management, gaming, and data extraction. Passionate about creating dynamic web applications and solving real-world problems. Proficient in front-end technologies like Angular, Vue.js, and DevOps tools such as Ansible and Gitlab CI/CD. Experienced with multiple database systems, including MySQL, MongoDB, Redis, and SQLite. Committed to modern JavaScript using ES6 and Typescript. Currently expanding knowledge in Go and DevOps.';
+  'Skilled Node.js full-stack developer with 7 years of diverse experience in healthcare, hotel and management services, gaming websites and data extraction. Passionate about creating dynamic web applications that provide practical solutions to real-world problems. In addition to my proficiency in front-end technologies such as Angular, Vue.js and DevOps tools such as Ansible and Gitlab CI / CD, I have worked with multiple database systems like MySQL, MongoDB, Redis and SQLite. I am a firm believer in modern JavaScript and have used ES6 and Typescript to develop business applications. Currently, I am also expanding my knowledge by exploring Go and DevOps related operations.';
 
 const resumeURL = 'https://docs.google.com/document/d/172vRyMYj3bKzff67v1yzmK4kB6iL4WXWYXk30YuWSRE/edit?usp=sharing';
 
 export default function Home() {
   const [quote, setQuote] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
+  const [mousePosition, setMousePosition] = useState({x: 0, y: 0});
+  const [sparkles, setSparkles] = useState<
+    {id: number; x: number; y: number}[]
+  >([]);
 
   useEffect(() => {
     async function fetchQuote() {
@@ -40,6 +44,36 @@ export default function Home() {
     }
     fetchQuote();
   }, []);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({x: e.clientX, y: e.clientY});
+      // Create sparkles
+      createSparkle();
+    };
+
+    const createSparkle = () => {
+      setSparkles(prevSparkles => {
+        const newSparkle = {
+          id: Date.now(),
+          x: mousePosition.x + (Math.random() - 0.5) * 20, // Random offset
+          y: mousePosition.y + (Math.random() - 0.5) * 20,
+        };
+        return [...prevSparkles, newSparkle];
+      });
+    };
+
+    const removeSparkle = (id: number) => {
+      setSparkles(prevSparkles => prevSparkles.filter(sparkle => sparkle.id !== id));
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [mousePosition.x, mousePosition.y]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
@@ -69,6 +103,24 @@ export default function Home() {
           </DialogContent>
         </Dialog>
         <Button variant="outline">Projects</Button>
+      </div>
+      <div className="sparkle-container">
+        {sparkles.map(sparkle => (
+          <div
+            key={sparkle.id}
+            className="sparkle"
+            style={{
+              left: `${sparkle.x}px`,
+              top: `${sparkle.y}px`,
+              animationDelay: `${Math.random() * 0.2}s`,
+            }}
+            onAnimationEnd={() =>
+              setSparkles(prevSparkles =>
+                prevSparkles.filter(s => s.id !== sparkle.id)
+              )
+            }
+          />
+        ))}
       </div>
       <Avatar className="mb-4 h-32 w-32">
         <AvatarImage src={profileImage} alt="Manas Ranjan Nilorout" />
