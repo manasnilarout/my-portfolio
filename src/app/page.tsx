@@ -12,16 +12,16 @@ import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/compo
 import {Skeleton} from '@/components/ui/skeleton';
 import {Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog";
 
-const profileImage = 'https://i.imgur.com/0KhtQoI.png';
+const profileImage = '/profile.jpg';
 
 const profileLinks = [
   {
     name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/manas-ranjan-nilorout/',
+    url: 'https://www.linkedin.com/in/manas-nilarout/',
     icon: Linkedin,
   },
-  {name: 'GitHub', url: 'https://github.com/mnlr', icon: Github},
-  {name: 'Email', url: 'mailto:manas.ranjan.nilorout@example.com', icon: Mail},
+  {name: 'GitHub', url: 'https://github.com/manasnilarout', icon: Github},
+  {name: 'Email', url: 'mailto:manasnilarout@gmail.com', icon: Mail},
 ];
 
 const professionalSummary =
@@ -33,9 +33,7 @@ export default function Home() {
   const [quote, setQuote] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
   const [mousePosition, setMousePosition] = useState({x: 0, y: 0});
-  const [sparkles, setSparkles] = useState<
-    {id: number; x: number; y: number}[]
-  >([]);
+  const [sparkles, setSparkles] = useState<Array<{id: string; x: number; y: number}>>([]);
 
   useEffect(() => {
     async function fetchQuote() {
@@ -55,7 +53,7 @@ export default function Home() {
     const createSparkle = () => {
       setSparkles(prevSparkles => {
         const newSparkle = {
-          id: Date.now(),
+          id: `sparkle-${Date.now()}-${Math.random()}`,
           x: mousePosition.x + (Math.random() - 0.5) * 20, // Random offset
           y: mousePosition.y + (Math.random() - 0.5) * 20,
         };
@@ -63,7 +61,7 @@ export default function Home() {
       });
     };
 
-    const removeSparkle = (id: number) => {
+    const removeSparkle = (id: string) => {
       setSparkles(prevSparkles => prevSparkles.filter(sparkle => sparkle.id !== id));
     };
 
@@ -76,8 +74,8 @@ export default function Home() {
   }, [mousePosition.x, mousePosition.y]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4">
-      <div className="absolute top-4 right-4 flex space-x-2 rounded-md bg-secondary p-2 shadow-md">
+    <div className="flex flex-col items-center justify-center min-h-screen p-4 pt-20 md:p-4">
+      <div className="fixed top-4 right-4 z-10 flex space-x-2 rounded-md bg-secondary p-2 shadow-md">
         <Button asChild variant="outline">
           <Link href="/blogs">Blogs</Link>
         </Button>
