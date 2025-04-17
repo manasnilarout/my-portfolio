@@ -25,7 +25,7 @@ const profileLinks = [
 ];
 
 const professionalSummary =
-  'A skilled Node.js full-stack developer with 7 years of experience across healthcare, gaming, and data extraction, creating dynamic web applications. Proficient in Angular, Vue.js, Ansible, Gitlab CI/CD, MySQL, MongoDB, Redis, and Typescript. Currently exploring Go and DevOps.';
+  'Skilled Node.js full-stack developer with 7 years of experience in creating dynamic web applications across healthcare, gaming, and data extraction. Proficient in Angular, Vue.js, Ansible, Gitlab CI/CD, MySQL, MongoDB, Redis, Typescript, and AI. Exploring Go and DevOps.';
 
 const resumeURL = 'https://docs.google.com/document/d/172vRyMYj3bKzff67v1yzmK4kB6iL4WXWYXk30YuWSRE/edit?usp=sharing';
 
@@ -160,4 +160,3 @@ export default function Home() {
     </div>
   );
 }
-
