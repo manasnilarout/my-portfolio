@@ -10,8 +10,9 @@ import {Avatar, AvatarFallback, AvatarImage} from '@/components/ui/avatar';
 import {Button} from '@/components/ui/button';
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
 import {Skeleton} from '@/components/ui/skeleton';
+import {Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog";
 
-const profileImage = 'https://picsum.photos/200/200';
+const profileImage = 'https://i.imgur.com/aPaKtTC.jpeg';
 
 const profileLinks = [
   {
@@ -24,10 +25,13 @@ const profileLinks = [
 ];
 
 const professionalSummary =
-  'Skilled Node.js full-stack developer with 7 years of experience across healthcare, hotel management, gaming, and data extraction. Passionate about creating dynamic web applications with modern JavaScript, ES6, and Typescript. Currently expanding knowledge in Go and DevOps.';
+  'Skilled Node.js full-stack developer with 7 years of experience in healthcare, hotel management, gaming, and data extraction. Passionate about creating dynamic web applications and solving real-world problems. Proficient in front-end technologies like Angular, Vue.js, and DevOps tools such as Ansible and Gitlab CI/CD. Experienced with multiple database systems, including MySQL, MongoDB, Redis, and SQLite. Committed to modern JavaScript using ES6 and Typescript. Currently expanding knowledge in Go and DevOps.';
+
+const resumeURL = 'https://docs.google.com/document/d/172vRyMYj3bKzff67v1yzmK4kB6iL4WXWYXk30YuWSRE/edit?usp=sharing';
 
 export default function Home() {
   const [quote, setQuote] = useState<string | null>(null);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     async function fetchQuote() {
@@ -43,7 +47,27 @@ export default function Home() {
         <Button asChild variant="outline">
           <Link href="/blogs">Blogs</Link>
         </Button>
-        <Button variant="outline">Resume</Button>
+        <Dialog open={open} onOpenChange={setOpen}>
+          <DialogTrigger asChild>
+            <Button variant="outline">Resume</Button>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-[850px]">
+            <DialogHeader>
+              <DialogTitle>Resume</DialogTitle>
+              <DialogDescription>
+                View Manas Ranjan Nilorout's Resume.
+              </DialogDescription>
+            </DialogHeader>
+            <div className="h-[600px]">
+              <iframe src={resumeURL} width="100%" height="100%" />
+            </div>
+            <DialogFooter>
+              <Button type="submit" onClick={() => window.open(resumeURL, '_blank')}>
+                Open in new tab
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
         <Button variant="outline">Projects</Button>
       </div>
       <Avatar className="mb-4 h-32 w-32">
@@ -82,4 +106,3 @@ export default function Home() {
     </div>
   );
 }
-
