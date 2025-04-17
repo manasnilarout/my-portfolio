@@ -2,6 +2,9 @@
 
 import Link from 'next/link';
 import {ExternalLink} from 'lucide-react';
+import {Button} from "@/components/ui/button";
+import {Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog";
+import {useState} from "react";
 
 const blogs = [
   {
@@ -22,13 +25,43 @@ const blogs = [
   },
 ];
 
+const resumeURL = 'https://docs.google.com/document/d/172vRyMYj3bKzff67v1yzmK4kB6iL4WXWYXk30YuWSRE/edit?usp=sharing';
+
 export default function Blogs() {
+  const [open, setOpen] = useState(false);
   return (
     <div className="flex flex-col items-center justify-start min-h-screen p-4">
+      <div className="absolute top-4 right-4 flex space-x-2 rounded-md bg-secondary p-2 shadow-md">
+        <Button asChild variant="outline">
+          <Link href="/">Home</Link>
+        </Button>
+        <Dialog open={open} onOpenChange={setOpen}>
+          <DialogTrigger asChild>
+            <Button variant="outline">Resume</Button>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-[850px]">
+            <DialogHeader>
+              <DialogTitle>Resume</DialogTitle>
+              <DialogDescription>
+                View Manas Ranjan Nilorout's Resume.
+              </DialogDescription>
+            </DialogHeader>
+            <div className="h-[600px]">
+              <iframe src={resumeURL} width="100%" height="100%" />
+            </div>
+            <DialogFooter>
+              <Button type="submit" onClick={() => window.open(resumeURL, '_blank')}>
+                Open in new tab
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+        <Button variant="outline">Projects</Button>
+      </div>
       <h1 className="text-2xl font-bold text-center mb-6 text-primary-foreground">Blogs</h1>
       <ul className="w-full max-w-2xl">
         {blogs.map((blog, index) => (
-          <li key={index} className="mb-8">
+          <li key={index} className="mb-8 p-4 rounded-md bg-secondary">
             <div className="text-lg font-semibold text-primary-foreground">{blog.title}</div>
             <p className="text-sm text-muted-foreground">{blog.description}</p>
             <div className="flex items-center justify-between mt-2">
@@ -46,6 +79,3 @@ export default function Blogs() {
     </div>
   );
 }
-
-
-    
