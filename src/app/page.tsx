@@ -12,7 +12,7 @@ import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/compo
 import {Skeleton} from '@/components/ui/skeleton';
 import {Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog";
 
-const profileImage = 'https://i.imgur.com/y9D3yOM.jpeg';
+const profileImage = 'https://i.imgur.com/j9C0KIm.jpeg';
 
 const profileLinks = [
   {
@@ -25,7 +25,7 @@ const profileLinks = [
 ];
 
 const professionalSummary =
-  'Skilled Node.js full-stack developer with 7 years of diverse experience in healthcare, hotel and management services, gaming websites and data extraction. Passionate about creating dynamic web applications that provide practical solutions to real-world problems. In addition to my proficiency in front-end technologies such as Angular, Vue.js and DevOps tools such as Ansible and Gitlab CI / CD, I have worked with multiple database systems like MySQL, MongoDB, Redis and SQLite. I am a firm believer in modern JavaScript and have used ES6 and Typescript to develop business applications. Currently, I am also expanding my knowledge by exploring Go and DevOps related operations.';
+  'A seasoned Node.js full-stack developer with 7 years of experience across healthcare, hotel management, gaming, and data extraction. Passionate about crafting dynamic web applications that solve real-world challenges. Proficient in front-end technologies like Angular and Vue.js, DevOps tools such as Ansible and Gitlab CI/CD, and database systems including MySQL, MongoDB, Redis, and SQLite. Embraces modern JavaScript with ES6 and TypeScript. Currently exploring Go and DevOps.';
 
 const resumeURL = 'https://docs.google.com/document/d/172vRyMYj3bKzff67v1yzmK4kB6iL4WXWYXk30YuWSRE/edit?usp=sharing';
 
@@ -130,7 +130,9 @@ export default function Home() {
       <h1 className="text-3xl font-bold text-center mb-2 text-primary-foreground">Manas Ranjan Nilorout</h1>
 
       {quote ? (
-        <p className="text-lg text-center text-muted-foreground mb-6">{quote}</p>
+        <div className="bg-secondary rounded-md p-2 mb-6">
+        <p className="text-lg text-center text-muted-foreground">{quote}</p>
+        </div>
       ) : (
         <Skeleton className="w-[200px] h-[24px] mb-6" />
       )}
