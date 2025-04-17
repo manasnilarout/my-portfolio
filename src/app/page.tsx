@@ -2,6 +2,7 @@
 
 import {Github, Linkedin, Mail} from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import {useEffect, useState} from 'react';
 
 import {generateQuote} from '@/ai/flows/generate-quote';
@@ -10,7 +11,7 @@ import {Button} from '@/components/ui/button';
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
 import {Skeleton} from '@/components/ui/skeleton';
 
-const profileImage = 'https://firebasestorage.googleapis.com/v0/b/fir-studio-39a65.appspot.com/o/manas.jpeg?alt=media&token=491b65f7-118e-4eb2-b6a9-a48997d7ca0b';
+const profileImage = 'https://picsum.photos/200/200';
 
 const profileLinks = [
   {
@@ -23,7 +24,7 @@ const profileLinks = [
 ];
 
 const professionalSummary =
-  'Node.js full-stack developer with 7 years of experience building dynamic web applications across healthcare, hotel management, and gaming. Proficient in Angular, Vue.js, DevOps tools, and multiple database systems. Passionate about modern JavaScript, ES6, Typescript and expanding knowledge in Go and DevOps.';
+  'Skilled Node.js full-stack developer with 7 years of experience across healthcare, hotel management, gaming, and data extraction. Passionate about creating dynamic web applications with modern JavaScript, ES6, and Typescript. Currently expanding knowledge in Go and DevOps.';
 
 export default function Home() {
   const [quote, setQuote] = useState<string | null>(null);
@@ -38,9 +39,11 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
-      <div className="absolute top-4 right-4 flex space-x-2">
+      <div className="absolute top-4 right-4 flex space-x-2 rounded-md bg-secondary p-2 shadow-md">
+        <Button asChild variant="outline">
+          <Link href="/blogs">Blogs</Link>
+        </Button>
         <Button variant="outline">Resume</Button>
-        <Button variant="outline">Blogs</Button>
         <Button variant="outline">Projects</Button>
       </div>
       <Avatar className="mb-4 h-32 w-32">
@@ -48,7 +51,7 @@ export default function Home() {
         <AvatarFallback>MN</AvatarFallback>
       </Avatar>
 
-      <h1 className="text-2xl font-bold text-center mb-2">Manas Ranjan Nilorout</h1>
+      <h1 className="text-3xl font-bold text-center mb-2 text-primary-foreground">Manas Ranjan Nilorout</h1>
 
       {quote ? (
         <p className="text-lg text-center text-muted-foreground mb-6">{quote}</p>
@@ -79,3 +82,4 @@ export default function Home() {
     </div>
   );
 }
+
