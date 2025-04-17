@@ -12,7 +12,7 @@ import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/compo
 import {Skeleton} from '@/components/ui/skeleton';
 import {Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog";
 
-const profileImage = 'https://i.imgur.com/DqD6Q7Z.jpeg';
+const profileImage = 'https://i.imgur.com/0KhtQoI.png';
 
 const profileLinks = [
   {
@@ -25,7 +25,7 @@ const profileLinks = [
 ];
 
 const professionalSummary =
-  'Skilled Node.js full-stack developer with 7 years of experience in creating dynamic web applications across healthcare, gaming, and data extraction. Proficient in Angular, Vue.js, Ansible, Gitlab CI/CD, MySQL, MongoDB, Redis, Typescript, and AI. Exploring Go and DevOps.';
+  'Skilled Node.js full-stack developer with 7 years of experience in healthcare, gaming, and data extraction. Proficient in Angular, Vue.js, Ansible, Gitlab CI/CD, MySQL, MongoDB, Redis, Typescript, and AI. Exploring Go and DevOps.';
 
 const resumeURL = 'https://docs.google.com/document/d/172vRyMYj3bKzff67v1yzmK4kB6iL4WXWYXk30YuWSRE/edit?usp=sharing';
 
@@ -160,3 +160,4 @@ export default function Home() {
     </div>
   );
 }
+
