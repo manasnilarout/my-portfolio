@@ -1,0 +1,272 @@
+.experience {
+  padding: 100px 20px;
+  position: relative;
+  background: linear-gradient(180deg, transparent, rgba(121, 40, 202, 0.05), transparent);
+}
+
+.experience-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline {
+  position: relative;
+  padding: 40px 0;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  background: var(--gradient);
+  transform: translateX(-50%);
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 60px;
+  width: 50%;
+}
+
+.timeline-item.left {
+  padding-right: 40px;
+  text-align: right;
+}
+
+.timeline-item.right {
+  padding-left: 40px;
+  margin-left: 50%;
+}
+
+.timeline-dot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--gradient);
+  border-radius: 50%;
+  top: 20px;
+  box-shadow: 0 0 30px rgba(0, 217, 255, 0.6);
+  cursor: pointer;
+  z-index: 2;
+}
+
+.timeline-item.left .timeline-dot {
+  right: -10px;
+}
+
+.timeline-item.right .timeline-dot {
+  left: -10px;
+}
+
+.timeline-content {
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 217, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.experience-header {
+  margin-bottom: 15px;
+}
+
+.experience-title {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.experience-company {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.experience-meta {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.timeline-item.left .experience-meta {
+  justify-content: flex-end;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.meta-item .icon {
+  color: var(--primary-color);
+  font-size: 0.8rem;
+}
+
+.experience-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.experience-responsibilities h4 {
+  color: var(--text-primary);
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.experience-responsibilities ul {
+  list-style: none;
+  padding: 0;
+}
+
+.experience-responsibilities li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.experience-responsibilities li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.timeline-item.left .experience-responsibilities li {
+  padding-left: 0;
+  padding-right: 25px;
+}
+
+.timeline-item.left .experience-responsibilities li::before {
+  left: auto;
+  right: 0;
+}
+
+.achievements-section {
+  margin-top: 80px;
+}
+
+.achievements-title {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.achievement-card {
+  padding: 25px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.achievement-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.achievement-card h4 {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.achievement-org {
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.achievement-year {
+  display: inline-block;
+  background: rgba(0, 217, 255, 0.1);
+  color: var(--primary-color);
+  padding: 3px 10px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+
+.achievement-desc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+@media (max-width: 968px) {
+  .timeline-line {
+    left: 20px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 60px !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+    margin-left: 0 !important;
+  }
+
+  .timeline-dot {
+    left: 10px !important;
+    right: auto !important;
+  }
+
+  .experience-meta {
+    justify-content: flex-start !important;
+  }
+
+  .timeline-item.left .experience-responsibilities li {
+    padding-left: 25px;
+    padding-right: 0;
+  }
+
+  .timeline-item.left .experience-responsibilities li::before {
+    left: 0;
+    right: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .timeline-content {
+    padding: 20px;
+  }
+
+  .experience-title {
+    font-size: 1.2rem;
+  }
+
+  .experience-company {
+    font-size: 1rem;
+  }
+
+  .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+}
