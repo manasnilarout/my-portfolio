@@ -155,15 +155,16 @@ const SimpleProjects: React.FC = () => {
         </div>
 
         {/* Projects Grid */}
-        <div style={{ 
+        <div className="projects-grid" style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
-          gap: '30px' 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+          gap: '25px' 
         }}>
           <AnimatePresence mode="wait">
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
+                className="project-card"
                 style={{
                   background: 'rgba(255, 255, 255, 0.03)',
                   border: '1px solid rgba(255, 255, 255, 0.1)',

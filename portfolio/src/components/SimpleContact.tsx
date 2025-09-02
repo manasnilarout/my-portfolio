@@ -107,9 +107,10 @@ const SimpleContact: React.FC = () => {
           Let's connect and discuss how we can create something amazing together.
         </motion.p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'start' }}>
+        <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '40px', alignItems: 'start' }}>
           {/* Contact Information */}
           <motion.div
+            className="contact-info"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -232,7 +233,7 @@ const SimpleContact: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <form onSubmit={handleSubmit} style={{
+            <form onSubmit={handleSubmit} className="contact-form" style={{
               background: 'rgba(255, 255, 255, 0.03)',
               border: '1px solid rgba(255, 255, 255, 0.1)',
               borderRadius: '20px',
@@ -267,7 +268,7 @@ const SimpleContact: React.FC = () => {
                 </motion.div>
               )}
 
-              <div style={{ display: 'flex', gap: '15px', marginBottom: '20px' }}>
+              <div className="contact-form-row" style={{ display: 'flex', gap: '15px', marginBottom: '20px' }}>
                 <div style={{ flex: 1 }}>
                   <label style={{ 
                     display: 'block', 

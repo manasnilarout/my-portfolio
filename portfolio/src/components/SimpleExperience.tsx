@@ -87,9 +87,10 @@ const SimpleExperience: React.FC = () => {
         </h2>
 
         {/* Timeline */}
-        <div style={{ position: 'relative', padding: '40px 0' }}>
+        <div className="experience-timeline" style={{ position: 'relative', padding: '40px 0' }}>
           {/* Timeline Line */}
           <motion.div 
+            className="experience-timeline-line"
             style={{
               position: 'absolute',
               left: '50%',
@@ -109,6 +110,7 @@ const SimpleExperience: React.FC = () => {
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.id}
+              className="experience-card"
               style={{
                 position: 'relative',
                 marginBottom: '60px',
@@ -125,6 +127,7 @@ const SimpleExperience: React.FC = () => {
             >
               {/* Timeline Dot */}
               <motion.div
+                className="timeline-dot"
                 style={{
                   position: 'absolute',
                   width: '20px',

@@ -213,7 +213,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .hero-content .hero-title {
-    font-size: 2.5rem !important;
+    font-size: 2rem !important;
   }
   
   .hero-visual {
@@ -223,9 +223,30 @@ h1, h2, h3, h4, h5, h6 {
   .hero-buttons {
     flex-direction: column;
     gap: 15px;
+    width: 100%;
+  }
+  
+  .hero-buttons a {
+    width: 100%;
+    text-align: center;
   }
   
   .hero-social {
     justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Typography */
+  h2 {
+    font-size: 2rem !important;
+  }
+  
+  h3 {
+    font-size: 1.5rem !important;
+  }
+  
+  /* Cards and containers */
+  .glass-card {
+    padding: 20px;
   }
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import './styles/Responsive.css';
 import SimpleHero from './components/SimpleHero';
 import SimpleAbout from './components/SimpleAbout';
 import SimpleExperience from './components/SimpleExperience';

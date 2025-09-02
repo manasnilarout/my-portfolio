@@ -39,7 +39,12 @@ const SimpleAbout: React.FC = () => {
           About Me
         </h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+          gap: '40px', 
+          alignItems: 'center' 
+        }}>
           {/* About Text */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -62,7 +67,7 @@ const SimpleAbout: React.FC = () => {
             </p>
             
             {/* Stats */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '20px' }}>
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
