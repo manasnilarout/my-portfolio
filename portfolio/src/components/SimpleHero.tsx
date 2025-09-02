@@ -164,7 +164,43 @@ const SimpleHero: React.FC = () => {
           initial={{ x: 50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.5 }}
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '30px' }}
         >
+          {/* Profile Picture */}
+          <motion.div
+            style={{
+              width: '200px',
+              height: '200px',
+              borderRadius: '50%',
+              overflow: 'hidden',
+              border: '4px solid transparent',
+              background: 'linear-gradient(135deg, #00d9ff, #7928ca, #ff0080)',
+              padding: '4px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ delay: 0.3, duration: 0.8, type: 'spring' }}
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: '0 20px 40px rgba(0, 217, 255, 0.3)'
+            }}
+          >
+            <img
+              src="/profile_n.jpg"
+              alt="Manas Ranjan Nilorout"
+              style={{
+                width: '100%',
+                height: '100%',
+                borderRadius: '50%',
+                objectFit: 'cover',
+                background: '#0a0a0a'
+              }}
+            />
+          </motion.div>
+
           <div className="code-window">
             <div className="window-header">
               <div className="window-controls">
